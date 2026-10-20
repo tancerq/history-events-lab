@@ -181,7 +181,15 @@ public class EventService {
             System.out.println(e);
         }
     }
-
+    public static Event searchByName(String name) {
+        System.out.println("Поиск события: " + name);
+        for (Event e : events) {
+            if (e.getName().equals(name)) {
+                return e;
+            }
+        }
+        return null;
+    }
     // НОВЫЙ ФУНКЦИОНАЛ (по заданию лабы)
     public static int count() {
         return events.length;
