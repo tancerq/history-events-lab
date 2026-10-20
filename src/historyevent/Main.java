@@ -12,20 +12,25 @@ public class Main {
             System.out.println("3. Список событий русской истории 19 века");
             System.out.println("4. Период с максимальным количеством событий");
             System.out.println("5. Упорядочить события по возрастанию дат");
-            System.out.println("6. Выход");
-            System.out.print("Выберите пункт (1–6): ");
+            System.out.println("6. Показать количество событий"); // Добавили вызов нового метода
+            System.out.println("7. Выход");
+            System.out.print("Выберите пункт (1-7): ");
 
             int choice = sc.nextInt();
             sc.nextLine();
 
             switch (choice) {
-                case 1: Event.fillEvents(); break;
-                case 2: Event.printEvents(); break;
-                case 3: Event.listRussian19th(); break;
-                case 4: Event.findPeriodWithMaxEvents(); break;
-                case 5: Event.sortByYear(); break;
-                case 6: System.out.println("Завершение работы.");return;
-                default: System.out.println("Неверный ввод. Попробуйте снова.");
+                case 1: EventService.fillEvents(); break;
+                case 2: EventService.printEvents(); break;
+                case 3: EventService.listRussian19th(); break;
+                case 4: EventService.findPeriodWithMaxEvents(); break;
+                case 5: EventService.sortByYear(); break;
+                case 6: System.out.println("Всего событий в массиве: " + EventService.count()); break; // Используем count()
+                case 7:
+                    System.out.println("Завершение работы.");
+                    return;
+                default:
+                    System.out.println("Неверный ввод. Попробуйте снова.");
             }
         }
     }
